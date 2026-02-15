@@ -1,0 +1,35 @@
+# DC Dimming
+allow system_server vendor_sysfs_dc_dim:file rw_file_perms;
+add_service(system_server, dc_dimming_service);
+
+# Pocket Judge
+allow system_server pocket_judge_sysfs:dir search;
+allow system_server pocket_judge_sysfs:file rw_file_perms;
+allow system_server pocket_service:service_manager { add find };
+
+# Set tethering properties
+set_prop(system_server, device_config_tethering_prop)
+
+# Powershare
+hal_client_domain(system_server, hal_lineage_powershare)
+
+# Lineage
+hal_client_domain(system_server, hal_lineage_health)
+
+# CachedAppOptimizer
+allow system_server zygote_tmpfs:file rw_file_perms;
+
+# Lineage Touch
+hal_client_domain(system_server, hal_lineage_touch)
+
+# Lineage fastcharge
+hal_client_domain(system_server, hal_lineage_fastcharge)
+
+# App lock
+add_service(system_server, app_lock_service);
+
+# PowerShare
+add_service(system_server, powershare_manager_service);
+
+# Let system server toggle xtra-daemon
+set_prop(system_server, xtra_control_prop)
