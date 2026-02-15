@@ -1,3 +1,6 @@
+# Freeform
+lmo_freeform                                u:object_r:lmofreeform_service:s0
+
 # DC Dimming
 dc_dim                                      u:object_r:dc_dimming_service:s0
 
