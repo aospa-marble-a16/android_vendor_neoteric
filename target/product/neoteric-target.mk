@@ -84,19 +84,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     debug.graphics.game_default_frame_rate.disabled=true
 
-# Google - GMS
-$(call inherit-product, vendor/gms/products/gms.mk)
-
-# Pixel goodies
-$(call inherit-product, vendor/neoteric_prebuilt/pixel/packages.mk)
-
-# GMS Spoof
-$(call inherit-product, vendor/gms_spoof/config.mk)
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    remote_provisioning.enable_rkpd=true \
-    remote_provisioning.hostname=remoteprovisioning.googleapis.com
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
      vendor/neoteric/target/config/neoteric_vendor_framework_compatibility_matrix.xml
